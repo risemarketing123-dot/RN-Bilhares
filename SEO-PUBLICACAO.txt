@@ -1,0 +1,1 @@
+Após definir o domínio final, adicionar canonical e sitemap.xml com URLs absolutas.
