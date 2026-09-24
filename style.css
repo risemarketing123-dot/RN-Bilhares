@@ -163,3 +163,67 @@
     grid-auto-rows:300px;
   }
 }
+
+/* V6 — refinamento mobile, vídeo vertical e galeria sem duplicações */
+@media(max-width:1050px){
+  .header-inner{position:relative}
+  .menu-btn{order:-1;flex:0 0 44px;margin:0;display:grid;width:44px;height:44px;place-content:center;gap:6px;border:0;background:transparent;cursor:pointer}
+  .brand{margin-right:auto}
+  .header-cta{margin-left:0}
+  .mobile-nav{max-height:calc(100svh - 92px);overflow-y:auto;backdrop-filter:blur(14px)}
+}
+
+@media(max-width:760px){
+  .header-inner{width:calc(100% - 28px);height:78px;justify-content:flex-start;gap:12px}
+  .menu-btn{order:-1;position:relative;z-index:2;width:44px;height:44px;flex-basis:44px}
+  .menu-btn span{width:26px;height:2px}
+  .brand{width:105px;margin:0 auto 0 0}
+  .brand img{height:56px;object-position:left center}
+  .mobile-nav{top:78px;padding:18px 28px 26px}
+  .mobile-nav a{padding:18px 0;font-size:17px}
+  .mobile-nav .mobile-wa{margin-top:16px;padding:16px;font-size:16px}
+
+  .hero-motion{height:92svh;min-height:650px}
+  .hero-motion-video{object-position:center center}
+  .hero-motion-inner{bottom:34px;width:calc(100% - 28px)}
+  .hero-motion-copy{max-width:100%}
+  .hero-motion-copy h1{font-size:clamp(46px,13vw,62px);line-height:.91;margin-bottom:16px}
+  .hero-motion-copy .hero-text{font-size:14px;line-height:1.62;max-width:92%}
+  .hero-actions{margin-top:22px}
+
+  .whatsapp-float{right:14px;bottom:calc(14px + env(safe-area-inset-bottom));width:54px;height:54px}
+  .whatsapp-float .wa-svg{width:25px;height:25px}
+}
+
+/* Nova galeria: 7 fotos únicas, preenchimento completo sem áreas vazias */
+.gallery{
+  grid-template-columns:repeat(3,1fr);
+  grid-template-areas:
+    "a a b"
+    "c d b"
+    "e f g";
+  grid-auto-rows:230px;
+  gap:12px;
+}
+.g-a{grid-area:a}.g-b{grid-area:b}.g-c{grid-area:c}.g-d{grid-area:d}.g-e{grid-area:e}.g-f{grid-area:f}.g-g{grid-area:g}
+.gallery-item{min-width:0;min-height:0}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+
+@media(max-width:760px){
+  .gallery{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "a b"
+      "c d"
+      "e f"
+      "g g";
+    grid-auto-rows:220px;
+  }
+}
+@media(max-width:430px){
+  .gallery{
+    grid-template-columns:1fr;
+    grid-template-areas:"a" "b" "c" "d" "e" "f" "g";
+    grid-auto-rows:300px;
+  }
+}
